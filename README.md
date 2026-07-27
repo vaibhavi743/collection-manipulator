@@ -88,6 +88,15 @@ Student-Data-Organizer/
 │
 ├── project3.py
 └── README.md
+└── images
+    -home.png
+    -home1.png
+    -home2.png
+    -home3.png
+```
+
+```
+
 ```
 
 ---
@@ -206,11 +215,14 @@ home3.png
 
 ## Add Student
 
-![Add Student](images/add_student.png)
+![Add Student](images/home1.png)
 
 ## Display Students
 
-![Display Students](images/display_students.png)
+![Display Students](images/home2.png)
+
+## update students
+![update students](images/home3.png)
 ```
 
 ---
