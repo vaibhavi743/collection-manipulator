@@ -192,9 +192,11 @@ images/
 
 home.png
 
-add_student.png
+home1.png
 
-display_students.png
+home2.png
+
+home3.png
 ```
 
 ```md
