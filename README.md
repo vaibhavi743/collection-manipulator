@@ -4,9 +4,9 @@ A beginner-friendly **Python Console Application** that helps manage student rec
 
 It is an excellent project for beginners to understand how **Python dictionaries, lists, loops, conditional statements, and CRUD (Create, Read, Update, Delete) operations**.
 
-# 📖 Project Overview
+# 🎯 Project Objective
 
-The **Student Data Organizer** is a beginner-friendly Python application designed to organize student information.
+The main objective of this project is to learn and implement Python Collection concepts by managing student records using a **List of Dictionaries**. It demonstrates how CRUD operations can be performed efficiently in a menu-driven console application while following clean coding practices.
 
 Users can:
 
