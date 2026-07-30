@@ -89,10 +89,11 @@ Student-Data-Organizer/
 ├── project3.py
 └── README.md
 └── images
-    -home.png
-    -home1.png
-    -home2.png
-    -home3.png
+    -input1.png
+    -input2.png
+    -input3.png
+    -input4.png
+    -input5.png
 ```
 
 ```
@@ -127,7 +128,7 @@ Install Python 3.x
 Clone this repository
 
 ```bash
-git clone https://github.com/vaibhavi743/Student-Data-Organizer.git
+git clone https://github.com/vaibhavi743/collection-manipulator.git
 ```
 
 ### Step 3
@@ -199,30 +200,35 @@ Example:
 ```
 images/
 
-home.png
+input1.png
 
-home1.png
+input2.png
 
-home2.png
+input3.png
 
-home3.png
+input4.png
+
+input5.png
 ```
 
 ```md
 ## Home Screen
 
-![Home](images/home.png)
+![Home](images/input1.png)
 
 ## Add Student
 
-![Add Student](images/home1.png)
+![Add Student](images/input2.png)
 
 ## Display Students
 
-![Display Students](images/home2.png)
+![Display Students](images/input3.png)
 
 ## update students
-![update students](images/home3.png)
+![update students](images/input4.png)
+
+#subject offered
+![subject offered](images/input5.png)
 ```
 
 ---
@@ -271,9 +277,5 @@ This project helped in understanding:
 If you like this project,
 
 ⭐ Star this repository
-
-🍴 Fork it
-
-📢 Share it with others
 
 Happy Coding! 🚀
