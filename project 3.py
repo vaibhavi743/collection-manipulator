@@ -32,7 +32,6 @@ while True:
 
         student_info = (student_id, dob)
 
-        # Dictionary
         student = {
             "info": student_info,
             "name": name,
