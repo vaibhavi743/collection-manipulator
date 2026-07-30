@@ -1,11 +1,11 @@
-print("Welcome to the student data organizer!")
+print("=" * 50)
+print("      Welcome to Student Data Organizer")
+print("=" * 50)
 
-
-
-students = {}
+students = []
 
 while True:
-    print("\n===== Student Data Organizer =====")
+    print("\n========== MENU ==========")
     print("1. Add Student")
     print("2. Display All Students")
     print("3. Update Student Information")
@@ -16,97 +16,137 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == "1":
-        sid = input("Student ID: ")
 
-        if sid in students:
-            print("Student ID already exists!")
-            continue
+        student_id = input("Enter Student ID: ")
+        name = input("Enter Name: ")
+        age = int(input("Enter Age: "))
+        grade = input("Enter Grade: ")
+        dob = input("Enter Date of Birth (YYYY-MM-DD): ")
 
-        name = input("Name: ")
-        age = int(input("Age: "))
-        grade = input("Grade: ")
-        dob = input("Date of Birth (YYYY-MM-DD): ")
-        subjects = input("Subjects (comma-separated): ").split(",")
+        subject_input = input("Enter Subjects (comma separated): ")
 
-        subjects = [subject.strip() for subject in subjects]
+        subjects = set()
 
-        students[sid] = {
+        for subject in subject_input.split(","):
+            subjects.add(subject.strip())
+
+        student_info = (student_id, dob)
+
+        # Dictionary
+        student = {
+            "info": student_info,
             "name": name,
             "age": age,
             "grade": grade,
-            "dob": dob,
             "subjects": subjects
         }
 
-        print("Student added successfully!")
+        students.append(student)
+
+        print("\nStudent added successfully!")
 
     elif choice == "2":
-        if not students:
-            print("No students found.")
+
+        if len(students) == 0:
+            print("\nNo student records found.")
+
         else:
-            print("\n--- Display All Students ---")
-            for sid, info in students.items():
-                print(f"Student ID: {sid}")
-                print(f"Name: {info['name']}")
-                print(f"Age: {info['age']}")
-                print(f"Grade: {info['grade']}")
-                print(f"DOB: {info['dob']}")
-                print("Subjects:", ", ".join(info['subjects']))
-                print("-" * 30)
+            print("\n========== STUDENT RECORDS ==========")
+
+            for student in students:
+
+                print(f"Student ID : {student['info'][0]}")
+                print(f"Name       : {student['name']}")
+                print(f"Age        : {student['age']}")
+                print(f"Grade      : {student['grade']}")
+                print(f"DOB        : {student['info'][1]}")
+                print(f"Subjects   : {', '.join(student['subjects'])}")
+                print("-" * 40)
 
     elif choice == "3":
-        sid = input("Enter Student ID to update: ")
 
-        if sid in students:
-            print("Leave blank if no change.")
+        sid = input("Enter Student ID to Update: ")
 
-            name = input("New Name: ")
-            age = input("New Age: ")
-            grade = input("New Grade: ")
-            dob = input("New DOB: ")
-            subjects = input("New Subjects (comma-separated): ")
+        found = False
 
-            if name:
-                students[sid]["name"] = name
-            if age:
-                students[sid]["age"] = int(age)
-            if grade:
-                students[sid]["grade"] = grade
-            if dob:
-                students[sid]["dob"] = dob
-            if subjects:
-                students[sid]["subjects"] = [s.strip() for s in subjects.split(",")]
+        for student in students:
 
-            print("Student information updated successfully!")
-        else:
+            if student["info"][0] == sid:
+
+                found = True
+
+                print("Leave blank if no change.")
+
+                name = input("New Name: ")
+                age = input("New Age: ")
+                grade = input("New Grade: ")
+                subjects = input("New Subjects (comma separated): ")
+
+                if name != "":
+                    student["name"] = name
+
+                if age != "":
+                    student["age"] = int(age)
+
+                if grade != "":
+                    student["grade"] = grade
+
+                if subjects != "":
+                    student["subjects"] = set()
+
+                    for sub in subjects.split(","):
+                        student["subjects"].add(sub.strip())
+
+                print("Student information updated successfully!")
+                break
+
+        if found == False:
             print("Student not found.")
 
     elif choice == "4":
-        sid = input("Enter Student ID to delete: ")
 
-        if sid in students:
-            del students[sid]
-            print("Student deleted successfully!")
-        else:
+        sid = input("Enter Student ID to Delete: ")
+
+        found = False
+
+        for i in range(len(students)):
+
+            if students[i]["info"][0] == sid:
+
+                del students[i]
+
+                print("Student deleted successfully!")
+
+                found = True
+                break
+
+        if found == False:
             print("Student not found.")
 
     elif choice == "5":
+
         all_subjects = set()
 
-        for info in students.values():
-            all_subjects.update(info["subjects"])
+        for student in students:
 
-        if all_subjects:
-            print("\nSubjects Offered:")
-            for subject in sorted(all_subjects):
-                print(subject)
-        else:
+            all_subjects.update(student["subjects"])
+
+        if len(all_subjects) == 0:
             print("No subjects available.")
 
+        else:
+
+            print("\nSubjects Offered:")
+
+            for subject in sorted(all_subjects):
+                print(subject)
+
     elif choice == "6":
-        print("Thank you for using the Student Data Organizer!")
+
+        print("\nThank you for using Student Data Organizer!")
+        print("Good Bye!")
         break
 
     else:
-        print("Invalid choice! Please try again.")
-
+        print("Invalid Choice! Please try again.")
+        
